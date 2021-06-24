@@ -148,4 +148,20 @@ public class WarmupOne {
             return true;
         return a < 0 && b < 0 && negative;
     }
+
+    /*Given a string, return a new string where the first and last chars have been exchanged.
+
+    frontBack("code") → "eodc"
+    frontBack("a") → "a"
+    frontBack("ab") → "ba"*/
+    public String frontBack(String str) {
+        if (str.length() <= 1)
+            return str;
+
+        char front = str.charAt(0);
+        char back = str.charAt(str.length() - 1);
+        String mid = str.substring(1, str.length() - 1);
+
+        return back + mid + front;
+    }
 }
