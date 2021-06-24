@@ -46,8 +46,8 @@ public class WarmupOne {
         int upper = 19;
 
         return inRange(a, lower, upper) ||
-               inRange(b, lower, upper) ||
-               inRange(c, lower, upper);
+                inRange(b, lower, upper) ||
+                inRange(c, lower, upper);
     }
 
     public boolean inRange(int value, int lower, int upper) {
@@ -109,7 +109,7 @@ public class WarmupOne {
     public String everyNth(String str, int n) {
         StringBuilder stringBuilder = new StringBuilder();
 
-        for (int i = 0; i < str.length(); i = i + n )
+        for (int i = 0; i < str.length(); i = i + n)
             stringBuilder.append(str.charAt(i));
 
         return stringBuilder.toString();
@@ -133,5 +133,19 @@ public class WarmupOne {
     parrotTrouble(false, 6) → false*/
     public boolean parrotTrouble(boolean talking, int hour) {
         return talking && (hour < 7 || hour > 20);
+    }
+
+    /*Given 2 int values, return true if one is negative and one is positive. Except if the
+    parameter "negative" is true, then return true only if both are negative.
+
+    posNeg(1, -1, false) → true
+    posNeg(-1, 1, false) → true
+    posNeg(-4, -5, true) → true*/
+    public boolean posNeg(int a, int b, boolean negative) {
+        if (a > 0 && b < 0 && !negative)
+            return true;
+        if (a < 0 && b > 0 && !negative)
+            return true;
+        return a < 0 && b < 0 && negative;
     }
 }
