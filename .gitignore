@@ -24,6 +24,7 @@ hs_err_pid*
 
 # idea files
 .idea/*
+*.iml
 
 # Default ignored files
 /shelf/
