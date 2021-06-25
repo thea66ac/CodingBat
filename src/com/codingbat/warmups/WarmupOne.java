@@ -164,4 +164,31 @@ public class WarmupOne {
 
         return back + mid + front;
     }
+
+    /*Given two temperatures, return true if one is less than 0 and the other is greater than 100.
+
+    icyHot(120, -1) → true
+    icyHot(-1, 120) → true
+    icyHot(2, 120) → false*/
+    public boolean icyHot(int temp1, int temp2) {
+        return (temp1 < 0 && temp2 > 100) || (temp2 < 0 && temp1 > 100);
+    }
+
+    /*We'll say that a number is "teen" if it is in the range 13..19 inclusive. Given 2 int values,
+    return true if one or the other is teen, but not both.
+
+    loneTeen(13, 99) → true
+    loneTeen(21, 19) → true
+    loneTeen(13, 13) → false*/
+    public boolean loneTeen(int a, int b) {
+        boolean aIsTeen = isTeen(a);
+        boolean bIsTeen = isTeen(b);
+
+        // ^ -> XOR operator
+        return aIsTeen ^ bIsTeen;
+    }
+
+    private boolean isTeen(int num) {
+        return 13 <= num && num <= 19;
+    }
 }
