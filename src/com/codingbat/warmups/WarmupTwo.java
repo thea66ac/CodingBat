@@ -1,20 +1,7 @@
 package com.codingbat.warmups;
 
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class WarmupTwo {
     public static void main(String[] args) {
-        String str = "332,4;823,1;2,1";
-
-        Pattern pattern = Pattern.compile("[-+]?[0-9]+");
-        Matcher matcher = pattern.matcher(str);
-
-        while (matcher.find()) {
-            System.out.println(str.substring(matcher.start(), matcher.end()));
-        }
     }
 
     /*Given a string and a non-negative int n, return a larger string that is n copies of the
@@ -113,5 +100,44 @@ public class WarmupTwo {
             stringBuilder.append(str.charAt(i));
 
         return stringBuilder.toString();
+    }
+
+    /*Given a non-empty string like "Code" return a string like "CCoCodCode".
+
+    stringSplosion("Code") → "CCoCodCode"
+    stringSplosion("abc") → "aababc"
+    stringSplosion("ab") → "aab"*/
+    public String stringSplosion(String str) {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int i = 0; i < str.length(); i++) {
+            stringBuilder.append(str, 0, i + 1);
+        }
+
+        return stringBuilder.toString();
+    }
+
+    /*Given a string, return the count of the number of times that a substring length 2 appears
+    in the string and also as the last 2 chars of the string, so "hixxxhi" yields 1
+    (we won't count the end substring).
+
+    last2("hixxhi") → 1
+    last2("xaxxaxaxx") → 1
+    last2("axxxaaxx") → 2*/
+    public int last2(String str) {
+        if (str.length() < 3)
+            return 0;
+
+        String lastTwo = str.substring(str.length() - 2);
+        int count = 0;
+        String tmp = "";
+
+        for (int i = 0; i < str.length() - 2; i++) {
+            tmp = str.substring(i, i + 2);
+            if (tmp.equals(lastTwo))
+                count++;
+        }
+
+        return count;
     }
 }
