@@ -191,4 +191,42 @@ public class WarmupOne {
     private boolean isTeen(int num) {
         return 13 <= num && num <= 19;
     }
+
+    /*Given a string, return a string made of the first 2 chars (if present), however include first
+    char only if it is 'o' and include the second only if it is 'z', so "ozymandias" yields "oz".
+
+    startOz("ozymandias") → "oz"
+    startOz("bzoo") → "z"
+    startOz("oxx") → "o"*/
+    public String startOz(String str) {
+        String returnString = "";
+
+        if (str.length() > 0 && str.charAt(0) == 'o')
+            returnString += 'o';
+        if (str.length() > 1 && str.charAt(1) == 'z')
+            returnString += 'z';
+
+        return returnString;
+    }
+
+    /*Given 2 int values, return true if they are both in the range 30..40 inclusive, or they are
+    both in the range 40..50 inclusive.
+
+    in3050(30, 31) → true
+    in3050(30, 41) → false
+    in3050(40, 50) → true*/
+    public boolean in3050(int a, int b) {
+        return ((30 <= a && a <= 40) && (30 <= b && b <= 40)) ||
+               ((40 <= a && a <= 50) && (40 <= b && b <= 50));
+    }
+
+    /*Given two non-negative int values, return true if they have the same last digit, such as
+    with 27 and 57. Note that the % "mod" operator computes remainders, so 17 % 10 is 7.
+
+    lastDigit(7, 17) → true
+    lastDigit(6, 17) → false
+    lastDigit(3, 113) → true*/
+    public boolean lastDigit(int a, int b) {
+        return (a % 10 - b % 10) == 0;
+    }
 }
