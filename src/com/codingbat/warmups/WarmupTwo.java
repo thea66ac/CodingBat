@@ -200,4 +200,39 @@ public class WarmupTwo {
 
         return count;
     }
+
+    /*Given a string, return a version where all the "x" have been removed. Except an "x" at the
+    very start or end should not be removed.
+
+    stringX("xxHxix") → "xHix"
+    stringX("abxxxcd") → "abcd"
+    stringX("xabxxxcdx") → "xabcdx" */
+    public String stringX(String str) {
+        if (str.length() < 2)
+            return str;
+
+        char firstChar = str.charAt(0);
+        String mid = str.substring(1, str.length() - 1).replaceAll("x", "");
+        char lastChar = str.charAt(str.length() - 1);
+
+        return firstChar + mid + lastChar;
+    }
+
+    /*Given a string, return a string made of the chars at indexes 0,1, 4,5, 8,9 ... so "kittens"
+    yields "kien".
+
+    altPairs("kitten") → "kien"
+    altPairs("Chocolate") → "Chole"
+    altPairs("CodingHorror") → "Congrr"*/
+    public String altPairs(String str) {
+        StringBuilder strBuilder = new StringBuilder();
+
+        for (int i = 0; i < str.length(); i += 4) {
+            strBuilder.append(str.charAt(i));
+            if(i + 1 < str.length())
+                strBuilder.append(str.charAt(i + 1));
+        }
+
+        return strBuilder.toString();
+    }
 }
