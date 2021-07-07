@@ -229,4 +229,73 @@ public class WarmupOne {
     public boolean lastDigit(int a, int b) {
         return (a % 10 - b % 10) == 0;
     }
+
+    /*Given two int values, return their sum. Unless the two values are the same, then return double their sum.
+
+    sumDouble(1, 2) → 3
+    sumDouble(3, 2) → 5
+    sumDouble(2, 2) → 8*/
+    public int sumDouble(int a, int b) {
+        int sum = a + b;
+
+        return a == b ? sum + sum : sum;
+    }
+
+    /*Given 2 ints, a and b, return true if one if them is 10 or if their sum is 10.
+
+    makes10(9, 10) → true
+    makes10(9, 9) → false
+    makes10(1, 9) → true*/
+    public boolean makes10(int a, int b) {
+        return a == 10 || b == 10 || a + b == 10;
+    }
+
+    /*Given a string, return a new string where "not " has been added to the front. However,
+    if the string already begins with "not", return the string unchanged. Note: use .equals()
+    to compare 2 strings.
+
+    notString("candy") → "not candy"
+    notString("x") → "not x"
+    notString("not bad") → "not bad"*/
+    public String notString(String str) {
+        if(str.length() > 2 && str.substring(0, 3).equals("not"))
+            return str;
+        else
+            return "not " + str;
+    }
+
+    /*Given a string, we'll say that the front is the first 3 chars of the string. If the string length
+    is less than 3, the front is whatever is there. Return a new string which is 3 copies of the front.
+
+    front3("Java") → "JavJavJav"
+    front3("Chocolate") → "ChoChoCho"
+    front3("abc") → "abcabcabc"*/
+    public String front3(String str) {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        if (str.length() < 3) {
+            stringBuilder.append(str).append(str).append(str);
+        } else {
+            String front = str.substring(0, 3);
+            stringBuilder.append(front).append(front).append(front);
+        }
+
+        return stringBuilder.toString();
+    }
+
+    /*Given a string, take the first 2 chars and return the string with the 2 chars added at both
+    the front and back, so "kitten" yields"kikittenki". If the string length is less than 2, use
+    whatever chars are there.
+
+    front22("kitten") → "kikittenki"
+    front22("Ha") → "HaHaHa"
+    front22("abc") → "ababcab"*/
+    public String front22(String str) {
+        if (str.length() < 2) {
+            return str + str + str;
+        } else {
+            String firstTwo = str.substring(0, 2);
+            return firstTwo + str + firstTwo;
+        }
+    }
 }
