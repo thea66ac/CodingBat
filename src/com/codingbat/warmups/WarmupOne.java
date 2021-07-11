@@ -3,6 +3,8 @@ package com.codingbat.warmups;
 public class WarmupOne {
     public static void main(String[] args) {
         WarmupOne warmupOne = new WarmupOne();
+        CharSequence charSequence = new StringBuilder("del");
+        System.out.println("adalcvjh".contains(charSequence));
     }
 
     /*Given a string, take the last char and return a new string with the last char added at the
@@ -217,7 +219,7 @@ public class WarmupOne {
     in3050(40, 50) → true*/
     public boolean in3050(int a, int b) {
         return ((30 <= a && a <= 40) && (30 <= b && b <= 40)) ||
-               ((40 <= a && a <= 50) && (40 <= b && b <= 50));
+                ((40 <= a && a <= 50) && (40 <= b && b <= 50));
     }
 
     /*Given two non-negative int values, return true if they have the same last digit, such as
@@ -258,7 +260,7 @@ public class WarmupOne {
     notString("x") → "not x"
     notString("not bad") → "not bad"*/
     public String notString(String str) {
-        if(str.length() > 2 && str.substring(0, 3).equals("not"))
+        if (str.length() > 2 && str.substring(0, 3).equals("not"))
             return str;
         else
             return "not " + str;
@@ -297,5 +299,35 @@ public class WarmupOne {
             String firstTwo = str.substring(0, 2);
             return firstTwo + str + firstTwo;
         }
+    }
+
+    /*Given 2 int values, return true if either of them is in the range 10..20 inclusive.
+
+    in1020(12, 99) → true
+    in1020(21, 12) → true
+    in1020(8, 99) → false*/
+    public boolean in1020(int a, int b) {
+        return 10 <= a && a <= 20 || 10 <= b && b <= 20;
+    }
+
+    /*Given a string, if the string "del" appears starting at index 1, return a string where that
+    "del" has been deleted. Otherwise, return the string unchanged.
+
+    delDel("adelbc") → "abc"
+    delDel("adelHello") → "aHello"
+    delDel("adedbc") → "adedbc*/
+    public String delDel(String str) {
+        if (str.length() > 3 && str.startsWith("del", 1))
+            return str.charAt(0) + str.substring(4);
+        return str;
+    }
+
+    /*Given three int values, a b c, return the largest.
+
+    intMax(1, 2, 3) → 3
+    intMax(1, 3, 2) → 3
+    intMax(3, 2, 1) → 3*/
+    public int intMax(int a, int b, int c) {
+        return Math.max(Math.max(a, b), c);
     }
 }
