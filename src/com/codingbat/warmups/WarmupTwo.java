@@ -255,4 +255,52 @@ public class WarmupTwo {
 
         return strBuilder.toString();
     }
+
+    /*Given an array of ints, we'll say that a triple is a value appearing 3 times in a row in the
+    array. Return true if the array does not contain any triples.
+
+    noTriples([1, 1, 2, 2, 1]) → true
+    noTriples([1, 1, 2, 2, 2, 1]) → false
+    noTriples([1, 1, 1, 2, 2, 2, 1]) → false*/
+    public boolean noTriples(int[] nums) {
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (nums[i] == nums[i + 1] && nums[i + 1] == nums[i + 2])
+                return false;
+        }
+        return true;
+    }
+
+    /*Given an array of ints, return true if it contains a 2, 7, 1 pattern: a value, followed by the
+    value plus 5, followed by the value minus 1. Additionally the 271 counts even if the "1"
+    differs by 2 or less from the correct value.
+
+    has271([1, 2, 7, 1]) → true
+    has271([1, 2, 8, 1]) → false
+    has271([2, 7, 1]) → true*/
+    public boolean has271(int[] nums) {
+        if (nums.length < 3) return false;
+
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (nums[i + 1] == nums[i] + 5 && Math.abs(--nums[i] - nums[i + 2]) <= 2)
+                return true;
+        }
+        return false;
+    }
+
+    /*Given an array of ints, return the number of times that two 6's are next to each other in
+    the array. Also count instances where the second "6" is actually a 7.
+
+    array667([6, 6, 2]) → 1
+    array667([6, 6, 2, 6]) → 1
+    array667([6, 7, 2, 6]) → 1*/
+    public int array667(int[] nums) {
+        int count = 0;
+
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == 6 && nums[i + 1] == 6 || nums[i + 1] == 7)
+                count++;
+        }
+
+        return count;
+    }
 }
