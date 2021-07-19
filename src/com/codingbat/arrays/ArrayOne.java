@@ -32,4 +32,19 @@ public class ArrayOne {
     public boolean sameFirstLast(int[] nums) {
         return nums.length > 0 && nums[0] == nums[nums.length - 1];
     }
+
+    /*Return an int array containing the first x digits of pi, {3, 1, 4, ..., x}.
+
+    makePi() → [3, 1, 4]*/
+    public int[] makePi(int x) {
+        String pi = String.valueOf(Math.PI).replace(".", "");
+
+        int[] arr = new int[x];
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = Integer.parseInt(String.valueOf(pi.charAt(i)));
+        }
+
+        return arr;
+    }
 }
