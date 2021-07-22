@@ -67,8 +67,7 @@ public class StringOne {
     firstTwo("abcdefg") → "ab"
     firstTwo("ab") → "ab"*/
     public String firstTwo(String str) {
-        if (str.length() < 2)
-            return str;
+        if (str.length() < 2) return str;
         return str.substring(0, 2);
     }
 
@@ -112,7 +111,69 @@ public class StringOne {
     public String nonStart(String a, String b) {
         a = a.substring(1);
         b = b.substring(1);
-
         return a + b;
     }
+
+
+    /*Given a string, return a "rotated left 2" version where the
+    first 2 chars are moved to the end. The string length will be at least 2.
+
+    left2("Hello") → "lloHe"
+    left2("java") → "vaja"
+    left2("Hi") → "Hi*/
+    public String left2(String str) {
+        if (str.length() < 2) return str;
+        return str.substring(2) + str.substring(0, 2);
+    }
+
+    /*Given a string, return a "rotated right 2" version where the last 2 chars are moved to the start.
+    The string length will be at least 2.
+
+    right2("Hello") → "loHel"
+    right2("java") → "vaja"
+    right2("Hi") → "Hi"*/
+    public String right2(String str) {
+        if(str.length() < 2) return str;
+        return str.substring(str.length() - 2) + str.substring(0, str.length() - 2);
+    }
+
+    /*Given a string, return a string length 1 from its front, unless front is false, in which case
+    return a string length 1 from its back. The string will be non-empty.
+
+    theEnd("Hello", true) → "H"
+    theEnd("Hello", false) → "o"
+    theEnd("oh", true) → "o"*/
+    public String theEnd(String str, boolean front) {
+        String result = "";
+
+        if (front) {
+            result += str.charAt(0);
+        } else {
+            result += str.charAt(str.length() - 1);
+        }
+
+        return result;
+    }
+
+    /*Given a string, return a version without both the first and last char of the string.
+    The string may be any length, including 0.
+
+    withouEnd2("Hello") → "ell"
+    withouEnd2("abc") → "b"
+    withouEnd2("ab") → ""*/
+    public String withouEnd2(String str) {
+        if (str.length() < 3) return "";
+        return str.substring(1, str.length() - 1);
+    }
+
+    /*Given a string of even length, return a string made of the middle two chars,
+    so the string "string" yields "ri". The string length will be at least 2.
+
+    middleTwo("string") → "ri"
+    middleTwo("code") → "od"
+    middleTwo("Practice") → "ct"*/
+    public String middleTwo(String str) {
+        return str.substring(str.length() / 2 - 1, str.length() / 2 + 1);
+    }
+
 }
