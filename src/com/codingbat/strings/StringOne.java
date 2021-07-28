@@ -133,7 +133,7 @@ public class StringOne {
     right2("java") → "vaja"
     right2("Hi") → "Hi"*/
     public String right2(String str) {
-        if(str.length() < 2) return str;
+        if (str.length() < 2) return str;
         return str.substring(str.length() - 2) + str.substring(0, str.length() - 2);
     }
 
@@ -176,4 +176,35 @@ public class StringOne {
         return str.substring(str.length() / 2 - 1, str.length() / 2 + 1);
     }
 
+    /*Given a string, return true if it ends in "ly".
+
+    endsLy("oddly") → true
+    endsLy("y") → false
+    endsLy("oddy") → false*/
+    public boolean endsLy(String str) {
+        return str.endsWith("ly");
+    }
+
+    /*Given a string and an int n, return a string made of the first and last n chars from the string.
+    The string length will be at least n.
+
+    nTwice("Hello", 2) → "Helo"
+    nTwice("Chocolate", 3) → "Choate"
+    nTwice("Chocolate", 1) → "Ce"*/
+    public String nTwice(String str, int n) {
+        return str.substring(0, n) + str.substring(str.length() - n);
+    }
+
+    /*Given a string and an index, return a string length 2 starting at the given index.
+    If the index is too big or too small to define a string length 2, use the first 2 chars.
+    The string length will be at least 2.
+
+    twoChar("java", 0) → "ja"
+    twoChar("java", 2) → "va"*/
+    public String twoChar(String str, int index) {
+        if (index < 0 || index >= str.length() || str.length() - index < 2) {
+            return str.substring(0, 2);
+        }
+        return str.substring(index, index + 2);
+    }
 }
