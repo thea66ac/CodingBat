@@ -4,6 +4,12 @@ import java.util.Arrays;
 
 public class ArrayOne {
     public static void main(String[] args) {
+        int[] a = {1, 2};
+        int[] b = {3, 4, 5};
+
+        ArrayOne arrayOne = new ArrayOne();
+
+        System.out.println(Arrays.toString(arrayOne.plusTwo(a, b)));
     }
 
     /*Given an array of ints, return true if 6 appears as either the first or last element
@@ -231,5 +237,50 @@ public class ArrayOne {
         int aSum = a[0] + a[1];
         int bSum = b[0] + b[1];
         return aSum >= bSum ? a : b;
+    }
+
+    /*Given an array of ints of even length, return a new array length 2 containing the middle
+    two elements from the original array. The original array will be length 2 or more.
+
+    makeMiddle([1, 2, 3, 4]) → [2, 3]
+    makeMiddle([7, 1, 2, 3, 4, 9]) → [2, 3]
+    makeMiddle([1, 2]) → [1, 2]*/
+    public int[] makeMiddle(int[] nums) {
+        int mid = nums.length / 2;
+        return new int[]{nums[mid - 1], nums[mid]};
+    }
+
+    /*Given 2 int arrays, each length 2, return a new array length 4 containing all their elements.
+
+    plusTwo([1, 2], [3, 4]) → [1, 2, 3, 4]
+    plusTwo([4, 4], [2, 2]) → [4, 4, 2, 2]
+    plusTwo([9, 2], [3, 4]) → [9, 2, 3, 4]*/
+    public int[] plusTwo(int[] a, int[] b) {
+        int fal = a.length;
+        int sal = b.length;
+        int[] result = new int[fal + sal];
+        arrCopy(result, 0, a, fal);
+        arrCopy(result, fal, b, result.length);
+        return result;
+    }
+
+    private void arrCopy(int[] result, int from, int[] arr, int to) {
+        for (int i = from, j = 0; i < to; i++, j++)
+            result[i] = arr[j];
+    }
+
+    /*Given an array of ints, swap the first and last elements in the array.
+    Return the modified array. The array length will be at least 1.
+
+    swapEnds([1, 2, 3, 4]) → [4, 2, 3, 1]
+    swapEnds([1, 2, 3]) → [3, 2, 1]
+    swapEnds([8, 6, 7, 9, 5]) → [5, 6, 7, 9, 8]*/
+    public int[] swapEnds(int[] nums) {
+        if (nums.length > 1) {
+            int tmp = nums[0];
+            nums[0] = nums[nums.length - 1];
+            nums[nums.length - 1] = tmp;
+        }
+        return nums;
     }
 }
